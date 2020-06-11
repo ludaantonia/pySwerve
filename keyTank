@@ -4,13 +4,13 @@ from tkinter import *
  
 GPIO.setmode(GPIO.BOARD)
  
-m1a = 
-m1b = 
-m1 = 
+m1a = 11
+m1b = 13
+m1 = 15
 
-m2a = 
-m2b = 
-m2 = 
+m2a = 29
+m2b = 31
+m2 = 33
 
 GPIO.setup(Motor1A,GPIO.OUT)
 GPIO.setup(Motor1B,GPIO.OUT)
