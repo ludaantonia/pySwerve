@@ -33,6 +33,8 @@ for i in range(joystick_count):
     joystick.init()
 
 
+
+
 #joystick input values converted to electrical output
 
 while True:
@@ -56,7 +58,7 @@ while True:
 
             pygame.event.pump()
 
-        	right = joystick.get_axis(1)
+            right = joystick.get_axis(1)
 			left = joystick.get_axis(4)
     
         GPIO.output(m1, GPIO.LOW)
@@ -235,7 +237,7 @@ while True:
 
     def callback(event):
         frame.focus_set()
-        print "clicked at", event.x, event.y
+        print("clicked at", event.x, event.y)
 
     frame = Frame(root, width=100, height=100)
 
