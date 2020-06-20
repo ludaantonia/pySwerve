@@ -36,9 +36,9 @@ for i in range(joystick_count):
 
 while True:
     pygame.event.pump()
-    rv = joystick.get_axis(1)
+    right = joystick.get_axis(1)
     rh = joystick.get_axis(0)
-    lv = joystick.get_axis(4)
+    left = joystick.get_axis(4)
     lh = joystick.get_axis(3)
     
     print(right)
