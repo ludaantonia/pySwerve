@@ -1,0 +1,74 @@
+import RPi.GPIO as GPIO
+import pygame
+ 
+ 
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+ 
+m1a = 11
+m1b = 13
+m1 = 15
+
+m2a = 29
+m2b = 31
+m2 = 33
+
+GPIO.setup(m1a,GPIO.OUT)
+GPIO.setup(m1b,GPIO.OUT)
+GPIO.setup(m1,GPIO.OUT)
+ 
+GPIO.setup(m2a,GPIO.OUT)
+GPIO.setup(m2b,GPIO.OUT)
+GPIO.setup(m2,GPIO.OUT)
+
+
+
+pygame.init()
+joystick_count = pygame.joystick.get_count()
+
+for i in range(joystick_count):
+    joystick = pygame.joystick.Joystick(i)
+    joystick.init()
+
+  
+
+while True:
+    pygame.event.pump()
+    rv = joystick.get_axis(1)
+    rh = joystick.get_axis(0)
+    lv = joystick.get_axis(4)
+    lh = joystick.get_axis(3)
+    
+    print(rv)
+    print(rh)
+    print(lv)
+    print(lh)
+    
+    while (rv > 0.2):
+        GPIO.output(m1a, GPIO.HIGH)
+        GPIO.output(m1b, GPIO.LOW)
+        GPIO.output(m1, GPIO.HIGH)
+    
+    while (rv < -0.2):
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
+
+
+    while (rh > 0.2):
+    
+    while (rh < -0.2):
+
+
+    while (lv > 0.2):
+    
+    while (lv < -0.2):
+
+
+    while (lh > 0.2):
+    
+    while (lh < -0.2):
+
+
+
+GPIO.cleanup()
