@@ -41,31 +41,46 @@ while True:
     lv = joystick.get_axis(4)
     lh = joystick.get_axis(3)
     
-    print(rv)
+    print(right)
     print(rh)
-    print(lv)
+    print(left)
     print(lh)
-    
-    while (rv > 0.2):
+
+    #forward
+    if right > 0.2 or left > 0.2:
         GPIO.output(m1a, GPIO.HIGH)
         GPIO.output(m1b, GPIO.LOW)
         GPIO.output(m1, GPIO.HIGH)
+
+        GPIO.output(m2a, GPIO.HIGH)
+        GPIO.output(m2b, GPIO.LOW)
+        GPIO.output(m2, GPIO.HIGH)
     
     GPIO.output(m1, GPIO.LOW)
     GPIO.output(m2, GPIO.LOW)
 
 
-    while (rv < -0.2):
+    #backward
+    if right < -0.2 or left < -0.2:
         GPIO.output(m1a, GPIO.LOW)
         GPIO.output(m1b, GPIO.HIGH)
         GPIO.output(m1, GPIO.HIGH)
 
+        GPIO.output(m2a, GPIO.LOW)
+        GPIO.output(m2b, GPIO.HIGH)
+        GPIO.output(m2, GPIO.HIGH)
+
     GPIO.output(m1, GPIO.LOW)
     GPIO.output(m2, GPIO.LOW)
 
 
+    #clockwise about origin
+    if left > 0.2 or right < -0.2:
 
-    while (lv > 0.2):
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
+
         GPIO.output(m2a, GPIO.HIGH)
         GPIO.output(m2b, GPIO.LOW)
         GPIO.output(m2, GPIO.HIGH)
@@ -73,8 +88,62 @@ while True:
     GPIO.output(m1, GPIO.LOW)
     GPIO.output(m2, GPIO.LOW)
 
-    
-    while (lv < -0.2):
+
+    #counterclockwise about origin
+
+    if left < -0.2 or right > 0.2:
+
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
+
+        GPIO.output(m2a, GPIO.LOW)
+        GPIO.output(m2b, GPIO.HIGH)
+        GPIO.output(m2, GPIO.HIGH)
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
+
+
+    #turn right forward
+
+    if right > 0.2 or -0.2 < left < 0.2:
+
+        GPIO.output(m2a, GPIO.HIGH)
+        GPIO.output(m2b, GPIO.LOW)
+        GPIO.output(m2, GPIO.HIGH)
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
+
+    #turn left forward
+
+
+    if left > 0.2 or -0.2 < right < 0.2:
+        
+        GPIO.output(m1a, GPIO.HIGH)
+        GPIO.output(m1b, GPIO.LOW)
+        GPIO.output(m1, GPIO.HIGH)
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
+
+    #turn right backward
+
+    if right < -0.2 or -0.2 < left < 0.2:
+
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
+
+    #turn left backward
+
+
+    if left < -0.2 or -0.2 < right < 0.2:
+
         GPIO.output(m2a, GPIO.LOW)
         GPIO.output(m2b, GPIO.HIGH)
         GPIO.output(m2, GPIO.HIGH)
