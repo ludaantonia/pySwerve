@@ -32,6 +32,8 @@ for i in range(joystick_count):
     joystick.init()
 
 
+
+
 #joystick input values converted to electrical output
 
 while True:
@@ -143,9 +145,9 @@ while True:
     if right > 0.2 and -0.2 < left < 0.2:
         while right > 0.2 and -0.2 < left < 0.2:
 
-            GPIO.output(m2a, GPIO.HIGH)
-            GPIO.output(m2b, GPIO.LOW)
-            GPIO.output(m2, GPIO.HIGH)
+            GPIO.output(m1a, GPIO.HIGH)
+            GPIO.output(m1b, GPIO.LOW)
+            GPIO.output(m1, GPIO.HIGH)
 
             pygame.event.pump()
 
@@ -164,9 +166,9 @@ while True:
     if left > 0.2 and -0.2 < right < 0.2:
         while left > 0.2 and -0.2 < right < 0.2:
         
-            GPIO.output(m1a, GPIO.HIGH)
-            GPIO.output(m1b, GPIO.LOW)
-            GPIO.output(m1, GPIO.HIGH)
+            GPIO.output(m2a, GPIO.HIGH)
+            GPIO.output(m2b, GPIO.LOW)
+            GPIO.output(m2, GPIO.HIGH)
 
             pygame.event.pump()
 
@@ -182,8 +184,8 @@ while True:
 
     #turn right backward
 
-    if right < -0.2 and -0.2 < left < 0.2:
-        while right < -0.2 and -0.2 < left < 0.2:
+    if left < -0.2 and -0.2 < right < -0.2:
+        while left < -0.2 and -0.2 < right < -0.2:
 
             GPIO.output(m1a, GPIO.LOW)
             GPIO.output(m1b, GPIO.HIGH)
@@ -204,8 +206,8 @@ while True:
 
     #turn left backward
 
-    if left < -0.2 and -0.2 < right < 0.2:
-        while left < -0.2 and -0.2 < right < 0.2:
+    if right < -0.2 and -0.2 < left < -0.2:
+        while right < -0.2 and -0.2 < left < -0.2:
 
             GPIO.output(m2a, GPIO.LOW)
             GPIO.output(m2b, GPIO.HIGH)
@@ -222,5 +224,6 @@ while True:
     pygame.event.pump()
     print(right)
     print(left)
+
 
 GPIO.cleanup()
