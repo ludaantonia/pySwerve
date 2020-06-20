@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import pygame
- 
+
+# motor setup
  
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
@@ -21,7 +22,7 @@ GPIO.setup(m2a,GPIO.OUT)
 GPIO.setup(m2b,GPIO.OUT)
 GPIO.setup(m2,GPIO.OUT)
 
-
+#joystick setup
 
 pygame.init()
 joystick_count = pygame.joystick.get_count()
@@ -30,7 +31,8 @@ for i in range(joystick_count):
     joystick = pygame.joystick.Joystick(i)
     joystick.init()
 
-  
+
+#joystick input values converted to electrical output
 
 while True:
     pygame.event.pump()
@@ -49,25 +51,36 @@ while True:
         GPIO.output(m1b, GPIO.LOW)
         GPIO.output(m1, GPIO.HIGH)
     
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
+
+
     while (rv < -0.2):
         GPIO.output(m1a, GPIO.LOW)
         GPIO.output(m1b, GPIO.HIGH)
         GPIO.output(m1, GPIO.HIGH)
 
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
 
-    while (rh > 0.2):
-    
-    while (rh < -0.2):
 
 
     while (lv > 0.2):
+        GPIO.output(m2a, GPIO.HIGH)
+        GPIO.output(m2b, GPIO.LOW)
+        GPIO.output(m2, GPIO.HIGH)
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
+
     
     while (lv < -0.2):
+        GPIO.output(m2a, GPIO.LOW)
+        GPIO.output(m2b, GPIO.HIGH)
+        GPIO.output(m2, GPIO.HIGH)
 
-
-    while (lh > 0.2):
-    
-    while (lh < -0.2):
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
 
 
 
