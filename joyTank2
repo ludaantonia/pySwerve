@@ -2,28 +2,6 @@ import RPi.GPIO as GPIO
 import pygame
 from tkinter import *
 
-#exit function
-root = Tk()
-
-def stop():
-    GPIO.output(m1, GPIO.LOW)
-    GPIO.output(m2, GPIO.LOW)
-    
-    GPIO.cleanup()
-
-#def callback(event):
-    #frame.focus_set()
-    #print "clicked at", event.x, event.y
-
-frame = Frame(root, width=100, height=100)
-
-frame.bind("<Key>", stop)
-
-#frame.bind("<Button-1>", callback)
-
-frame.pack()
-root.mainloop()
-
 # motor setup
  
 GPIO.setmode(GPIO.BOARD)
@@ -247,4 +225,26 @@ while True:
     pygame.event.pump()
     print(right)
     print(left)
+
+    #exit function
+    root = Tk()
+
+    def stop():
+        GPIO.output(m1, GPIO.LOW)
+        GPIO.output(m2, GPIO.LOW)
+    
+        GPIO.cleanup()
+
+    def callback(event):
+        frame.focus_set()
+        print "clicked at", event.x, event.y
+
+    frame = Frame(root, width=100, height=100)
+
+    frame.bind("<Up>", stop)
+    frame.bind("<Button-1>", callback)
+
+    frame.pack()
+    root.mainloop()
+
 
