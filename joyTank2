@@ -247,4 +247,4 @@ while True:
     frame.pack()
     root.mainloop()
 
-
+GPIO.cleanup()
