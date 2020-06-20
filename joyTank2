@@ -47,132 +47,135 @@ while True:
     print(lh)
 
     #forward
-    if right > 0.2 and left > 0.2:
-        while right > 0.2 and left > 0.2:
-            GPIO.output(m1a, GPIO.HIGH)
-            GPIO.output(m1b, GPIO.LOW)
-            GPIO.output(m1, GPIO.HIGH)
+    while right > 0.2 and left > 0.2:
+        GPIO.output(m1a, GPIO.HIGH)
+        GPIO.output(m1b, GPIO.LOW)
+        GPIO.output(m1, GPIO.HIGH)
 
-            GPIO.output(m2a, GPIO.HIGH)
-            GPIO.output(m2b, GPIO.LOW)
-            GPIO.output(m2, GPIO.HIGH)
+        GPIO.output(m2a, GPIO.HIGH)
+        GPIO.output(m2b, GPIO.LOW)
+        GPIO.output(m2, GPIO.HIGH)
+
+        pygame.event.pump()
     
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
     
     pygame.event.pump()
 
 
     #backward
-    if right < -0.2 and left < -0.2:
-        while right < -0.2 and left < -0.2:
-            GPIO.output(m1a, GPIO.LOW)
-            GPIO.output(m1b, GPIO.HIGH)
-            GPIO.output(m1, GPIO.HIGH)
+    while right < -0.2 and left < -0.2:
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
 
-            GPIO.output(m2a, GPIO.LOW)
-            GPIO.output(m2b, GPIO.HIGH)
-            GPIO.output(m2, GPIO.HIGH)
+        GPIO.output(m2a, GPIO.LOW)
+        GPIO.output(m2b, GPIO.HIGH)
+        GPIO.output(m2, GPIO.HIGH)
 
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+        pygame.event.pump()
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
     
     pygame.event.pump()
 
 
     #clockwise about origin
-    if left > 0.2 and right < -0.2:
-        while left > 0.2 or right < -0.2:
+    while left > 0.2 or right < -0.2:
 
-            GPIO.output(m1a, GPIO.LOW)
-            GPIO.output(m1b, GPIO.HIGH)
-            GPIO.output(m1, GPIO.HIGH)
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
 
-            GPIO.output(m2a, GPIO.HIGH)
-            GPIO.output(m2b, GPIO.LOW)
-            GPIO.output(m2, GPIO.HIGH)
+        GPIO.output(m2a, GPIO.HIGH)
+        GPIO.output(m2b, GPIO.LOW)
+        GPIO.output(m2, GPIO.HIGH)
 
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+        pygame.event.pump()
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
 
     pygame.event.pump()
 
 
     #counterclockwise about origin
+    while left < -0.2 or right > 0.2:
 
-    if left < -0.2 and right > 0.2:
-        while left < -0.2 or right > 0.2:
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
 
-            GPIO.output(m1a, GPIO.LOW)
-            GPIO.output(m1b, GPIO.HIGH)
-            GPIO.output(m1, GPIO.HIGH)
+        GPIO.output(m2a, GPIO.LOW)
+        GPIO.output(m2b, GPIO.HIGH)
+        GPIO.output(m2, GPIO.HIGH)
 
-            GPIO.output(m2a, GPIO.LOW)
-            GPIO.output(m2b, GPIO.HIGH)
-            GPIO.output(m2, GPIO.HIGH)
+        pygame.event.pump()
 
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
 
     pygame.event.pump()
 
 
     #turn right forward
+    while right > 0.2 or -0.2 < left < 0.2:
 
-    if right > 0.2 and -0.2 < left < 0.2:
-        while right > 0.2 or -0.2 < left < 0.2:
+        GPIO.output(m2a, GPIO.HIGH)
+        GPIO.output(m2b, GPIO.LOW)
+        GPIO.output(m2, GPIO.HIGH)
 
-            GPIO.output(m2a, GPIO.HIGH)
-            GPIO.output(m2b, GPIO.LOW)
-            GPIO.output(m2, GPIO.HIGH)
+        pygame.event.pump()
 
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
 
     pygame.event.pump()
 
 
     #turn left forward
-
-    if left > 0.2 and -0.2 < right < 0.2:
-        while left > 0.2 or -0.2 < right < 0.2:
+    while left > 0.2 or -0.2 < right < 0.2:
         
-            GPIO.output(m1a, GPIO.HIGH)
-            GPIO.output(m1b, GPIO.LOW)
-            GPIO.output(m1, GPIO.HIGH)
+        GPIO.output(m1a, GPIO.HIGH)
+        GPIO.output(m1b, GPIO.LOW)
+        GPIO.output(m1, GPIO.HIGH)
 
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+        pygame.event.pump()
+
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
 
     pygame.event.pump()
 
 
     #turn right backward
+    while right < -0.2 or -0.2 < left < 0.2:
 
-    if right < -0.2 and -0.2 < left < 0.2:
-        while right < -0.2 or -0.2 < left < 0.2:
+        GPIO.output(m1a, GPIO.LOW)
+        GPIO.output(m1b, GPIO.HIGH)
+        GPIO.output(m1, GPIO.HIGH)
 
-            GPIO.output(m1a, GPIO.LOW)
-            GPIO.output(m1b, GPIO.HIGH)
-            GPIO.output(m1, GPIO.HIGH)
+        pygame.event.pump()
 
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
 
     pygame.event.pump()
 
 
     #turn left backward
+    while left < -0.2 or -0.2 < right < 0.2:
 
-    if left < -0.2 and -0.2 < right < 0.2:
-        while left < -0.2 or -0.2 < right < 0.2:
+        GPIO.output(m2a, GPIO.LOW)
+        GPIO.output(m2b, GPIO.HIGH)
+        GPIO.output(m2, GPIO.HIGH)
 
-            GPIO.output(m2a, GPIO.LOW)
-            GPIO.output(m2b, GPIO.HIGH)
-            GPIO.output(m2, GPIO.HIGH)
+        pygame.event.pump()
 
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
+    GPIO.output(m1, GPIO.LOW)
+    GPIO.output(m2, GPIO.LOW)
     
     pygame.event.pump()
 
