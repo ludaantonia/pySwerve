@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import pygame
-from tkinter import *
 
 # motor setup
  
@@ -32,9 +31,6 @@ for i in range(joystick_count):
     joystick = pygame.joystick.Joystick(i)
     joystick.init()
 
-
-
-
 #joystick input values converted to electrical output
 
 while True:
@@ -59,7 +55,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
     
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -82,7 +78,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -106,7 +102,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -131,7 +127,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
 
         GPIO.output(m1, GPIO.LOW)
@@ -153,7 +149,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -174,7 +170,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -195,7 +191,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
 
         GPIO.output(m1, GPIO.LOW)
@@ -217,7 +213,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -226,25 +222,5 @@ while True:
     print(right)
     print(left)
 
-    #exit function
-    root = Tk()
-
-    def stop():
-        GPIO.output(m1, GPIO.LOW)
-        GPIO.output(m2, GPIO.LOW)
-    
-        GPIO.cleanup()
-
-    def callback(event):
-        frame.focus_set()
-        print("clicked at", event.x, event.y)
-
-    frame = Frame(root, width=100, height=100)
-
-    frame.bind("<Up>", stop)
-    frame.bind("<Button-1>", callback)
-
-    frame.pack()
-    root.mainloop()
 
 GPIO.cleanup()
