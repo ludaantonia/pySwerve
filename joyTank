@@ -55,7 +55,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
     
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -78,7 +78,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -102,7 +102,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
@@ -127,7 +127,7 @@ while True:
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
 
         GPIO.output(m1, GPIO.LOW)
@@ -137,61 +137,62 @@ while True:
     print(right)
     print(left)
 
+
     #turn right forward
 
-    if left > 0.2 and -0.2 < right < 0.2:
-        while left > 0.2 and -0.2 < right < 0.2:
+    if left < -0.2 and -0.2 < right < 0.2:
+        while left < -0.2 and -0.2 < right < 0.2:
 
-            GPIO.output(m1a, GPIO.HIGH)
-            GPIO.output(m1b, GPIO.LOW)
+            GPIO.output(m1a, GPIO.LOW)
+            GPIO.output(m1b, GPIO.HIGH)
             GPIO.output(m1, GPIO.HIGH)
 
             pygame.event.pump()
 
-            right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            right = joystick.get_axis(4)
+            left = joystick.get_axis(1)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
 
     pygame.event.pump()
-    print(right)
     print(left)
+    print(right)
 
     #turn left forward
 
-    if right > 0.2 and -0.2 < left < 0.2:
-        while right > 0.2 and -0.2 < left < 0.2:
+    if right < -0.2 and -0.2 < left < 0.2:
+        while right < -0.2 and -0.2 < left < 0.2:
         
-            GPIO.output(m2a, GPIO.HIGH)
-            GPIO.output(m2b, GPIO.LOW)
+            GPIO.output(m2a, GPIO.LOW)
+            GPIO.output(m2b, GPIO.HIGH)
             GPIO.output(m2, GPIO.HIGH)
 
             pygame.event.pump()
 
-            right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            right = joystick.get_axis(4)
+            left = joystick.get_axis(1)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
 
     pygame.event.pump()
-    print(right)
     print(left)
+    print(right)
 
     #turn right backward
+    
+    if left > 0.2 and -0.2 < right < -0.2:
+        while left > 0.2 and -0.2 < right < -0.2:
 
-    if right < -0.2 and -0.2 < left < -0.2:
-        while right < -0.2 and -0.2 < left < -0.2:
-
-            GPIO.output(m1a, GPIO.LOW)
-            GPIO.output(m1b, GPIO.HIGH)
+            GPIO.output(m1a, GPIO.HIGH)
+            GPIO.output(m1b, GPIO.LOW)
             GPIO.output(m1, GPIO.HIGH)
             
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
 
         GPIO.output(m1, GPIO.LOW)
@@ -203,17 +204,17 @@ while True:
 
     #turn left backward
 
-    if left < -0.2 and -0.2 < right < -0.2:
-        while left < -0.2 and -0.2 < right < -0.2:
+    if right > 0.2 and -0.2 < left < -0.2:
+        while right > 0.2 and -0.2 < left < -0.2:
 
-            GPIO.output(m2a, GPIO.LOW)
-            GPIO.output(m2b, GPIO.HIGH)
+            GPIO.output(m2a, GPIO.HIGH)
+            GPIO.output(m2b, GPIO.LOW)
             GPIO.output(m2, GPIO.HIGH)
 
             pygame.event.pump()
 
             right = joystick.get_axis(1)
-			left = joystick.get_axis(4)
+            left = joystick.get_axis(4)
 
         GPIO.output(m1, GPIO.LOW)
         GPIO.output(m2, GPIO.LOW)
