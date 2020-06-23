@@ -223,5 +223,7 @@ while True:
     print(right)
     print(left)
 
-
-GPIO.cleanup()
+    if joystick.get_button(0):
+        print("Quitting the program")
+        pygame.joystick.quit()
+        GPIO.cleanup()
