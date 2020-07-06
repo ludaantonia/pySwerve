@@ -12,10 +12,13 @@ m2a = 29
 m2b = 31
 m2 = 33
 
-GPIO.setup(Motor1A,GPIO.OUT)
-GPIO.setup(Motor1B,GPIO.OUT)
-GPIO.setup(Motor1E,GPIO.OUT)
- 
+GPIO.setup(m1a,GPIO.OUT)
+GPIO.setup(m1b,GPIO.OUT)
+GPIO.setup(m1,GPIO.OUT)
+
+GPIO.setup(m2a,GPIO.OUT)
+GPIO.setup(m2b,GPIO.OUT)
+GPIO.setup(m2,GPIO.OUT)
 
 def forward(sec):
 	GPIO.output(m1a, GPIO.HIGH)
@@ -31,7 +34,7 @@ def forward(sec):
 	GPIO.output(m1, GPIO.LOW)
 	GPIO.output(m2, GPIO.LOW)
 
- def backward(sec):
+def backward(sec):
 	GPIO.output(m1a, GPIO.LOW)
 	GPIO.output(m1b, GPIO.HIGH)
 	GPIO.output(m1, GPIO.HIGH)
@@ -45,7 +48,7 @@ def forward(sec):
 	GPIO.output(m1, GPIO.LOW)
 	GPIO.output(m2, GPIO.LOW)
 
- def turn_right(sec):
+def turn_right(sec):
 	GPIO.output(m1a, GPIO.HIGH)
 	GPIO.output(m1b, GPIO.LOW)
 	GPIO.output(m1, GPIO.HIGH)
@@ -59,7 +62,7 @@ def forward(sec):
 	GPIO.output(m1, GPIO.LOW)
 	GPIO.output(m2, GPIO.LOW)
 
- def turn_left(sec):
+def turn_left(sec):
 	GPIO.output(m1a, GPIO.LOW)
 	GPIO.output(m1b, GPIO.HIGH)
 	GPIO.output(m1, GPIO.HIGH)
@@ -72,24 +75,24 @@ def forward(sec):
  	
 	GPIO.output(m1, GPIO.LOW)
 	GPIO.output(m2, GPIO.LOW)
-
+	
 
 root = Tk()
 
-def up():
-	print "pressed", repr(event.char)
+def up(event):
+	print("pressed", repr(event.char))
 	forward(0.8)
 
-def down():
-	print "pressed", repr(event.char)
+def down(event):
+	print("pressed", repr(event.char))
 	backward(0.8)
 
-def left():
-	print "pressed", repr(event.char)
+def left(event):
+	print("pressed", repr(event.char))
 	turn_left(0.8)
 
-def right():
-	print "pressed", repr(event.char)
+def right(event):
+	print("pressed", repr(event.char))
 	turn_right(0.8)
 
 def callback(event):
